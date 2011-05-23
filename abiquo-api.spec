@@ -1,7 +1,7 @@
 %define abiquo_basedir /opt/abiquo
 
 Name:     abiquo-api
-Version:  1.7.6
+Version:  1.8
 Release:  1%{?dist}%{?buildstamp}
 Summary:  Abiquo Repository Manager
 Group:    Development/System 
@@ -37,6 +37,9 @@ rm -rf $RPM_BUILD_ROOT
 %{abiquo_basedir}/tomcat/webapps/api
 
 %changelog
+* Mon May 23 2011 Sergio Rubio <srubio@abiquo.com> - 1.8-1.20110523_1316
+- updated to 1.8
+
 * Thu Apr 14 2011 Sergio Rubio <rubiojr@frameos.org> - 1.7.6-1
 - bumped version
 
