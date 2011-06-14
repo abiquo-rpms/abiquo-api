@@ -2,12 +2,13 @@
 
 Name:     abiquo-api
 Version:  1.8
-Release:  1%{?dist}%{?buildstamp}
+Release:  2%{?dist}%{?buildstamp}
 Summary:  Abiquo Repository Manager
 Group:    Development/System 
 License:  Multiple 
 URL:      http://www.abiquo.com 
 Source0:  api.war
+Source1:  api.xml
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: abiquo-server
 BuildArch: noarch
@@ -25,7 +26,9 @@ Make sure that you read the license agrements in /usr/share/doc/abiquo-core lice
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/%{abiquo_basedir}/tomcat/webapps/api
 mkdir -p $RPM_BUILD_ROOT/%{_docdir}/%{name}
+mkdir -p $RPM_BUILD_ROOT/%{abiquo_basedir}/tomcat/conf/Catalina/localhost/
 /usr/bin/unzip -d $RPM_BUILD_ROOT/%{abiquo_basedir}/tomcat/webapps/api/ %{SOURCE0}
+cp %{SOURCE1} $RPM_BUILD_ROOT/%{abiquo_basedir}/tomcat/conf/Catalina/localhost/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -35,8 +38,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 #%doc %{_docdir}/%{name}/README
 %{abiquo_basedir}/tomcat/webapps/api
+%config(noreplace) %{abiquo_basedir}/tomcat/conf/Catalina/localhost/api.xml
 
 %changelog
+* Tue Jun 14 2011 Sergio Rubio <rubiojr@frameos.org> - 1.8-2
+- add tomcat default context config
+
 * Mon May 23 2011 Sergio Rubio <srubio@abiquo.com> - 1.8-1
 - updated to 1.8
 
