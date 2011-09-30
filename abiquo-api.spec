@@ -1,8 +1,8 @@
 %define abiquo_basedir /opt/abiquo
 
 Name:     abiquo-api
-Version:  1.8
-Release:  2%{?dist}%{?buildstamp}
+Version:  1.8.5
+Release:  1%{?dist}%{?buildstamp}
 Summary:  Abiquo Repository Manager
 Group:    Development/System 
 License:  Multiple 
@@ -41,6 +41,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{abiquo_basedir}/tomcat/conf/Catalina/localhost/api.xml
 
 %changelog
+* Fri Sep 30 2011 Sergio Rubio <srubio@abiquo.com> - 1.8.5-1
+- bumped version to 1.8.5
+
 * Tue Jun 14 2011 Sergio Rubio <rubiojr@frameos.org> - 1.8-2
 - add tomcat default context config
 
