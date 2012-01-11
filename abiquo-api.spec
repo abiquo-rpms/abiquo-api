@@ -1,13 +1,13 @@
 %define abiquo_basedir /opt/abiquo
 
 Name:     abiquo-api
-Version:  1.8.5
+Version:  2.0
 Release:  1%{?dist}%{?buildstamp}
 Summary:  Abiquo Repository Manager
 Group:    Development/System 
 License:  Multiple 
 URL:      http://www.abiquo.com 
-Source0:  api.war
+Source0:  %{?abiquo_binaries_url}api.war
 Source1:  api.xml
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: abiquo-server
@@ -41,6 +41,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{abiquo_basedir}/tomcat/conf/Catalina/localhost/api.xml
 
 %changelog
+* Mon Dec 19 2011 Sergio Rubio <srubio@abiquo.com> - 2.0-1
+- bumped version to 2.0
+
 * Fri Sep 30 2011 Sergio Rubio <srubio@abiquo.com> - 1.8.5-1
 - bumped version to 1.8.5
 
